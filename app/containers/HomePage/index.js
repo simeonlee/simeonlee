@@ -19,6 +19,7 @@ import H2 from 'components/H2';
 import ReposList from 'components/ReposList';
 import AtPrefix from './AtPrefix';
 import CenteredSection from './CenteredSection';
+import Subtitle from './Subtitle';
 import Form from './Form';
 import Input from './Input';
 import Section from './Section';
@@ -28,6 +29,10 @@ import { changeUsername } from './actions';
 import { makeSelectUsername } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
+import Module from './Module';
+import Background from './sect--1__bg.jpg';
+import Img from './Img';
+
 
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   /**
@@ -51,38 +56,30 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
       <article>
         <Helmet>
           <title>Home Page</title>
-          <meta name="description" content="A React.js Boilerplate application homepage" />
+          <meta name="description" content="Simeon Lee's online porfolio homepage" />
         </Helmet>
         <div>
-          <CenteredSection>
-            <H2>
-              <FormattedMessage {...messages.startProjectHeader} />
-            </H2>
-            <p>
-              <FormattedMessage {...messages.startProjectMessage} />
-            </p>
-          </CenteredSection>
-          <Section>
-            <H2>
-              <FormattedMessage {...messages.trymeHeader} />
-            </H2>
-            <Form onSubmit={this.props.onSubmitForm}>
-              <label htmlFor="username">
-                <FormattedMessage {...messages.trymeMessage} />
-                <AtPrefix>
-                  <FormattedMessage {...messages.trymeAtPrefix} />
-                </AtPrefix>
-                <Input
-                  id="username"
-                  type="text"
-                  placeholder="mxstbr"
-                  value={this.props.username}
-                  onChange={this.props.onChangeUsername}
-                />
-              </label>
-            </Form>
-            <ReposList {...reposListProps} />
-          </Section>
+          <Module>
+            <Img src={Background} alt="Simeon Lee - sect--1__bg" />
+            <CenteredSection>
+              Engineer of Bits and Designer of Pixels
+            </CenteredSection>
+            <Subtitle>
+              Hey, I'm Simeon Lee, welcome to my corner of the internet.
+              I'm a software engineer interested in the practical execution 
+              of business ideas and artful experiences.
+            </Subtitle>
+            <Subtitle>
+              Currently I work at Primary Data, where I manage the implementation of 
+              an extraordinarily data-intensive user interface by day, but I like to tinker
+              with ideas and explore the world of photography by night. Thanks for visiting,
+              don't forget to check out some of the stuff I've made recently in my portfolio
+              and check out my photography to see where I've been recently.
+            </Subtitle>
+          </Module>
+          <Module style={{background: '#edeeef', minHeight: 'auto', padding: '96px 60px'}}>
+            Blah
+          </Module>
         </div>
       </article>
     );
@@ -131,3 +128,27 @@ export default compose(
   withSaga,
   withConnect,
 )(HomePage);
+
+/*
+<Section>
+  <H2>
+    <FormattedMessage {...messages.trymeHeader} />
+  </H2>
+  <Form onSubmit={this.props.onSubmitForm}>
+    <label htmlFor="username">
+      <FormattedMessage {...messages.trymeMessage} />
+      <AtPrefix>
+        <FormattedMessage {...messages.trymeAtPrefix} />
+      </AtPrefix>
+      <Input
+        id="username"
+        type="text"
+        placeholder="mxstbr"
+        value={this.props.username}
+        onChange={this.props.onChangeUsername}
+      />
+    </label>
+  </Form>
+  <ReposList {...reposListProps} />
+</Section>
+*/

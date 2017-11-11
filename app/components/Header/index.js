@@ -2,26 +2,40 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import A from './A';
-import Img from './Img';
+import Logo from './Logo';
 import NavBar from './NavBar';
 import HeaderLink from './HeaderLink';
-import Banner from './banner.jpg';
-import messages from './messages';
+import Img from './Img';
+import slLogo from './sl__logo.png';
 
 class Header extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
       <div>
-        <A href="https://twitter.com/mxstbr">
-          <Img src={Banner} alt="react-boilerplate - Logo" />
-        </A>
         <NavBar>
-          <HeaderLink to="/">
-            <FormattedMessage {...messages.home} />
-          </HeaderLink>
-          <HeaderLink to="/features">
-            <FormattedMessage {...messages.features} />
-          </HeaderLink>
+          <Logo to="/">
+            <Img src={slLogo} alt="Simeon Lee - logo" />
+          </Logo>
+          <div>
+            <HeaderLink to="/">
+              Home
+            </HeaderLink>
+            <HeaderLink to="/portfolio">
+              Portfolio
+            </HeaderLink>
+            <HeaderLink to="/about">
+              About
+            </HeaderLink>
+            <HeaderLink to="/resume">
+              Resume
+            </HeaderLink>
+            <HeaderLink to="/blog">
+              Blog
+            </HeaderLink>
+            <HeaderLink to="/contact">
+              Contact
+            </HeaderLink>
+          </div>
         </NavBar>
       </div>
     );

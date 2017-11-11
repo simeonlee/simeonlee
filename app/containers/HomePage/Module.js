@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-const Wrapper = styled.footer`
+const Module = styled.section`
+  width: 100%;
+  position: relative;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 3em;
-  color: white;
-  background-color: #000;
 `;
 
-export default Wrapper;
+export default Module;
